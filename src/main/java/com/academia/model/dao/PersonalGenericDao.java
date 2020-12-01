@@ -7,7 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-public class PersonalGenericDao <Personal, Id extends Serializable>{
+public abstract class PersonalGenericDao <Personal, Id extends Serializable>{
 	
 	private EntityManager entityManager;	
 	
@@ -56,3 +56,4 @@ public class PersonalGenericDao <Personal, Id extends Serializable>{
 		return classePersistencia;
 	}
 }
+
