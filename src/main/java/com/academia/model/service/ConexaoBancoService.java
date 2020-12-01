@@ -3,7 +3,6 @@ package com.academia.model.service;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
-
 import com.academia.estrutura.persistencia.ConexaoBancoDados;
 import com.academia.estrutura.util.VariaveisProjeto;
 
