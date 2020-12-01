@@ -5,11 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import com.academia.estrutura.util.VariaveisProjeto;
 import com.academia.model.models.Usuario;
 import com.academia.model.service.UsuarioService;
-
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
