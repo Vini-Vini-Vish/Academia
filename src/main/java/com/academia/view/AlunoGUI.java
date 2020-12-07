@@ -6,10 +6,34 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JRadioButton;
+import javax.swing.JButton;
 
 public class AlunoGUI extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textFieldNome;
+	private JTextField textFieldGender;
+	private JTextField textFieldAge;
+	private JLabel lblAdress;
+	private JTextField textFieldAdress;
+	private JLabel lblNumber;
+	private JTextField textFieldNumber;
+	private JLabel lblNeighborhood;
+	private JTextField textFieldNeighborhood;
+	private JLabel lblCity;
+	private JTextField textFieldCity;
+	private JLabel lblTelephone;
+	private JTextField textFieldTelephone;
+	private JLabel lblPostalCode;
+	private JTextField textFieldPostalCode;
+	private JLabel lblPeriod;
+	private JTextField textFieldPeriod;
 
 	/**
 	 * Launch the application.
@@ -32,11 +56,171 @@ public class AlunoGUI extends JFrame {
 	 */
 	public AlunoGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 779, 445);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		JLabel lblName = new JLabel("Nome:");
+		
+		textFieldNome = new JTextField();
+		textFieldNome.setColumns(10);
+		
+		JLabel lblGender = new JLabel("Genero:");
+		
+		textFieldGender = new JTextField();
+		textFieldGender.setColumns(10);
+		
+		JLabel lblIdade = new JLabel("Idade");
+		
+		textFieldAge = new JTextField();
+		textFieldAge.setColumns(10);
+		
+		lblAdress = new JLabel("Endereço:");
+		
+		textFieldAdress = new JTextField();
+		textFieldAdress.setColumns(10);
+		
+		lblNumber = new JLabel("Numero:");
+		
+		textFieldNumber = new JTextField();
+		textFieldNumber.setColumns(10);
+		
+		lblNeighborhood = new JLabel("Bairro:");
+		
+		textFieldNeighborhood = new JTextField();
+		textFieldNeighborhood.setColumns(10);
+		
+		lblCity = new JLabel("Cidade:");
+		
+		textFieldCity = new JTextField();
+		textFieldCity.setColumns(10);
+		
+		lblTelephone = new JLabel("Telefone:");
+		
+		textFieldTelephone = new JTextField();
+		textFieldTelephone.setColumns(10);
+		
+		lblPostalCode = new JLabel("Codigo Postal:");
+		
+		textFieldPostalCode = new JTextField();
+		textFieldPostalCode.setColumns(10);
+		
+		lblPeriod = new JLabel("Periodo:");
+		
+		textFieldPeriod = new JTextField();
+		textFieldPeriod.setText("");
+		textFieldPeriod.setColumns(10);
+		
+		JRadioButton rdbtnActivity = new JRadioButton("Ativo");
+		
+		JButton btnIncluir = new JButton("Incluir");
+		
+		JButton btnAlterar = new JButton("Alterar");
+		
+		JButton btnExcluir = new JButton("Excluir");
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(24)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblName)
+								.addComponent(lblGender)
+								.addComponent(lblAdress)
+								.addComponent(lblNeighborhood))
+							.addGap(29)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(textFieldNome, GroupLayout.PREFERRED_SIZE, 590, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(textFieldNeighborhood, GroupLayout.PREFERRED_SIZE, 272, GroupLayout.PREFERRED_SIZE)
+									.addGap(40)
+									.addComponent(lblCity)
+									.addGap(18)
+									.addComponent(textFieldCity))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(textFieldAdress, GroupLayout.PREFERRED_SIZE, 422, GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addComponent(textFieldGender, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+											.addGap(43)
+											.addComponent(lblIdade)
+											.addGap(27)
+											.addComponent(textFieldAge, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
+											.addGap(52)
+											.addComponent(lblTelephone)))
+									.addGap(18)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(textFieldTelephone, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addComponent(lblNumber)
+											.addGap(18)
+											.addComponent(textFieldNumber, GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))))))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(lblPostalCode)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(btnIncluir, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
+									.addGap(49)
+									.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+									.addGap(48)
+									.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(textFieldPostalCode, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
+									.addGap(65)
+									.addComponent(lblPeriod)
+									.addGap(18)
+									.addComponent(textFieldPeriod, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+									.addComponent(rdbtnActivity)
+									.addGap(75)))))
+					.addGap(61))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(28)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblName)
+						.addComponent(textFieldNome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblGender)
+						.addComponent(textFieldGender, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+							.addComponent(lblIdade)
+							.addComponent(textFieldAge, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(textFieldTelephone, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(lblTelephone)))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblAdress)
+						.addComponent(textFieldAdress, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNumber)
+						.addComponent(textFieldNumber, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNeighborhood)
+						.addComponent(textFieldNeighborhood, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblCity)
+						.addComponent(textFieldCity, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblPostalCode)
+						.addComponent(textFieldPostalCode, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblPeriod)
+						.addComponent(textFieldPeriod, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(rdbtnActivity))
+					.addGap(58)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnIncluir)
+						.addComponent(btnAlterar)
+						.addComponent(btnExcluir))
+					.addContainerGap(112, Short.MAX_VALUE))
+		);
+		contentPane.setLayout(gl_contentPane);
 	}
-
 }
