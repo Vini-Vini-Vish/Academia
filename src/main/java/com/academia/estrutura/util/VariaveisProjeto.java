@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class VariaveisProjeto {
 	
-	public static final String PERSISTENCE_UNIT_NAME = "projeto";
+	public static final String PERSISTENCE_UNIT_NAME = "academia";
 		
 	public static final Integer ERRO_INCLUSAO = 10;
 	public static final Integer ERRO_ALTERACAO = 20;
