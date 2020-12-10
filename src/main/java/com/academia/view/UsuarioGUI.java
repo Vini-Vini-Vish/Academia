@@ -14,13 +14,26 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class UsuarioGUI extends JFrame {
 
+	private static final long serialVersionUID = 6282980174908539630L;
+	
 	private JPanel contentPane;
 	private JTextField textFieldName;
 	private JTextField textFieldEmail;
 	private JPasswordField passwordFieldPassword;
+	
+	private JButton btnIncluir;
+	private JButton btnAlterar;
+	private JButton btnExcluir;
+	
+	private JRadioButton rdbtnAtivo;
+	
+	private JRadioButton rdbtnAdmin;
+	private JButton btnSair;
 
 	/**
 	 * Launch the application.
@@ -62,72 +75,86 @@ public class UsuarioGUI extends JFrame {
 		
 		passwordFieldPassword = new JPasswordField();
 		
-		JRadioButton rdbtnAtivo = new JRadioButton("Ativo");
+		//-----------------------------------------------------------------//		
+		rdbtnAtivo = new JRadioButton("Ativo");
 		
-		JRadioButton rdbtnAdmin = new JRadioButton("Adimistrador");
+		rdbtnAdmin = new JRadioButton("Adimistrador");
 		
-		JButton btnIncluir = new JButton("Incluir");
+		btnIncluir = new JButton("Incluir");
 		
-		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar = new JButton("Alterar");
 		
-		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir = new JButton("Excluir");
+		
+		btnSair = new JButton("Sair");
+		//-----------------------------------------------------------------//	
+				
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(59)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblPassword)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+							.addComponent(lblName, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(lblEmail, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addComponent(btnIncluir))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblName, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-							.addGap(35)
-							.addComponent(textFieldName, GroupLayout.PREFERRED_SIZE, 575, GroupLayout.PREFERRED_SIZE))
+							.addGap(16)
+							.addComponent(btnAlterar)
+							.addGap(18)
+							.addComponent(btnExcluir)
+							.addPreferredGap(ComponentPlacement.RELATED, 348, Short.MAX_VALUE)
+							.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(lblPassword)
-								.addComponent(lblEmail, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
+							.addComponent(passwordFieldPassword, GroupLayout.PREFERRED_SIZE, 372, GroupLayout.PREFERRED_SIZE)
+							.addGap(30)
+							.addComponent(rdbtnAtivo)
 							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(passwordFieldPassword)
-								.addComponent(textFieldEmail, GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(rdbtnAtivo, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-									.addGap(52)
-									.addComponent(rdbtnAdmin, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
-									.addGap(92)
-									.addComponent(btnIncluir, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
-									.addGap(64)
-									.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-									.addGap(57)
-									.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
-									.addGap(153))))))
+							.addComponent(rdbtnAdmin))
+						.addComponent(textFieldEmail)
+						.addComponent(textFieldName, GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
+					.addGap(168))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(35)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(3)
-							.addComponent(lblName))
+							.addComponent(lblName, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addComponent(textFieldName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(53)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblEmail)
-						.addComponent(textFieldEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textFieldEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblEmail, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
 					.addGap(58)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblPassword)
-						.addComponent(passwordFieldPassword, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(passwordFieldPassword, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(rdbtnAtivo, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addComponent(rdbtnAdmin))
 					.addGap(51)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(rdbtnAtivo)
-						.addComponent(rdbtnAdmin)
-						.addComponent(btnIncluir)
-						.addComponent(btnExcluir)
-						.addComponent(btnAlterar))
+						.addComponent(btnSair)
+						.addComponent(btnIncluir, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(117, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
+	}
+	
+	private void createEvents() {
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 	}
 
 }
