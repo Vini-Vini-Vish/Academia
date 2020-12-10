@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AlunoGUI extends JFrame {
 
@@ -34,6 +36,13 @@ public class AlunoGUI extends JFrame {
 	private JTextField textFieldPostalCode;
 	private JLabel lblPeriod;
 	private JTextField textFieldPeriod;
+	
+	private JButton btnIncluir;
+	private JButton btnAlterar;
+	private JButton btnExcluir;
+	
+	private JRadioButton rdbtnActivity;
+	private JButton btnSair;
 
 	/**
 	 * Launch the application.
@@ -112,13 +121,18 @@ public class AlunoGUI extends JFrame {
 		textFieldPeriod.setText("");
 		textFieldPeriod.setColumns(10);
 		
-		JRadioButton rdbtnActivity = new JRadioButton("Ativo");
+		//-----------------------------------------------------------------//	
+		rdbtnActivity = new JRadioButton("Ativo");
 		
-		JButton btnIncluir = new JButton("Incluir");
+		btnIncluir = new JButton("Incluir");
 		
-		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar = new JButton("Alterar");
 		
-		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir = new JButton("Excluir");
+		
+		btnSair = new JButton("Sair");		
+		//-----------------------------------------------------------------//	
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -139,7 +153,7 @@ public class AlunoGUI extends JFrame {
 									.addGap(40)
 									.addComponent(lblCity)
 									.addGap(18)
-									.addComponent(textFieldCity))
+									.addComponent(textFieldCity, 223, 223, 223))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addComponent(textFieldAdress, GroupLayout.PREFERRED_SIZE, 422, GroupLayout.PREFERRED_SIZE)
@@ -159,24 +173,26 @@ public class AlunoGUI extends JFrame {
 											.addGap(18)
 											.addComponent(textFieldNumber, GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))))))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblPostalCode)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblPostalCode)
+								.addComponent(btnIncluir))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(btnIncluir, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
-									.addGap(49)
-									.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-									.addGap(48)
-									.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE))
+									.addComponent(btnAlterar)
+									.addGap(28)
+									.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addComponent(textFieldPostalCode, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
 									.addGap(65)
 									.addComponent(lblPeriod)
 									.addGap(18)
 									.addComponent(textFieldPeriod, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+									.addPreferredGap(ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
 									.addComponent(rdbtnActivity)
-									.addGap(75)))))
+									.addGap(75)))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)))
 					.addGap(61))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -216,11 +232,21 @@ public class AlunoGUI extends JFrame {
 						.addComponent(rdbtnActivity))
 					.addGap(58)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnIncluir)
-						.addComponent(btnAlterar)
-						.addComponent(btnExcluir))
+						.addComponent(btnSair)
+						.addComponent(btnIncluir, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnExcluir)
+						.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(112, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
+	
+	private void createEvents() {
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+	}
+	
 }
