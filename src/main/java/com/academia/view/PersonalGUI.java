@@ -12,9 +12,13 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PersonalGUI extends JFrame {
 
+	private static final long serialVersionUID = 2190619453341927627L;
+	
 	private JPanel contentPane;
 	private JTextField textFieldName;
 	private JTextField textFieldAge;
@@ -27,6 +31,11 @@ public class PersonalGUI extends JFrame {
 	private JTextField textGender;
 	private JTextField textFieldPeriod;
 	private JTextField textFieldCref;
+	
+	private JButton btnIncluir;
+	private JButton btnAlterar;
+	private JButton btnExcluir;
+	private JButton btnSair;
 
 	/**
 	 * Launch the application.
@@ -112,29 +121,57 @@ public class PersonalGUI extends JFrame {
 		textFieldCref.setText("");
 		textFieldCref.setColumns(10);
 		
-		JButton btnIncluir = new JButton("Incluir");
+		//-----------------------------------------------------------------//	
+		btnIncluir = new JButton("Incluir");
 		
-		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar = new JButton("Alterar");
 		
-		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir = new JButton("Excluir");
+		
+		btnSair = new JButton("Sair");		
+		//-----------------------------------------------------------------//	
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(45)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblName, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblAge)
-						.addComponent(lblAdress)
 						.addComponent(lblNeightbornhood)
 						.addComponent(lblCity)
-						.addComponent(lblPeriod))
-					.addGap(29)
+						.addComponent(lblPeriod)
+						.addComponent(lblAdress)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+							.addComponent(lblName, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(lblAge, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addComponent(btnIncluir))
+					.addGap(17)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(textFieldName, GroupLayout.PREFERRED_SIZE, 590, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addComponent(lblCref)
+										.addComponent(textFieldCity, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
+										.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+											.addGap(1)
+											.addComponent(btnAlterar)
+											.addGap(18)
+											.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addGap(47)
+												.addComponent(lblPostalCode)
+												.addGap(18)
+												.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE))
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addGap(18)
+												.addComponent(textFieldCref)))
+										.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)))
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(textFieldName, Alignment.LEADING)
 									.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
 										.addComponent(textFieldAge, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGap(35)
@@ -152,26 +189,7 @@ public class PersonalGUI extends JFrame {
 										.addGap(29)
 										.addComponent(lblNumberl)
 										.addGap(18)
-										.addComponent(textFieldNumber, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-										.addComponent(lblCref)
-										.addComponent(textFieldCity, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(btnIncluir, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
-											.addGap(80)
-											.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-											.addGap(74)
-											.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)))
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addGap(47)
-											.addComponent(lblPostalCode)
-											.addGap(18)
-											.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addGap(18)
-											.addComponent(textFieldCref, GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)))))
+										.addComponent(textFieldNumber))))
 							.addGap(43))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(textFieldPeriod, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
@@ -180,12 +198,13 @@ public class PersonalGUI extends JFrame {
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(31)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(3)
-							.addComponent(lblName))
-						.addComponent(textFieldName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGap(31)
+							.addComponent(textFieldName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(34)
+							.addComponent(lblName)))
 					.addGap(29)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblAge)
@@ -196,7 +215,7 @@ public class PersonalGUI extends JFrame {
 						.addComponent(textGender, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(20)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblAdress)
+						.addComponent(lblAdress, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textFieldAdress, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNumberl)
 						.addComponent(textFieldNumber, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
@@ -218,12 +237,21 @@ public class PersonalGUI extends JFrame {
 						.addComponent(textFieldCref, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnIncluir)
-						.addComponent(btnExcluir)
-						.addComponent(btnAlterar))
+						.addComponent(btnSair)
+						.addComponent(btnIncluir, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnAlterar)
+						.addComponent(btnExcluir))
 					.addGap(54))
 		);
 		contentPane.setLayout(gl_contentPane);
+	}
+	
+	private void createEvents() {
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 	}
 
 }
