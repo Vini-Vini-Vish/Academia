@@ -2,10 +2,10 @@ package com.academia.view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import com.academia.model.models.Aluno;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -121,9 +121,9 @@ public class AlunoGUI extends JFrame {
 		textFieldPeriod.setText("");
 		textFieldPeriod.setColumns(10);
 		
-		//-----------------------------------------------------------------//	
 		rdbtnActivity = new JRadioButton("Ativo");
 		
+		//-----------------------------------------------------------------//		
 		btnIncluir = new JButton("Incluir");
 		
 		btnAlterar = new JButton("Alterar");
@@ -239,6 +239,7 @@ public class AlunoGUI extends JFrame {
 					.addContainerGap(112, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
+		createEvents();
 	}
 	
 	private void createEvents() {
@@ -247,6 +248,29 @@ public class AlunoGUI extends JFrame {
 				dispose();
 			}
 		});
+	}
+	
+	public Aluno PegarDadosAluno() {
+		Aluno aluno = new Aluno();
+		
+		aluno.setName(textFieldNome.getText());
+		aluno.setGender(textFieldGender.getText());	
+		aluno.setAge(textFieldAge.getColumns());		
+		aluno.setAdress(textFieldAdress.getText());		
+		aluno.setNumber(textFieldNumber.getColumns());		
+		aluno.setNeighborhood(textFieldNeighborhood.getText());			
+		aluno.setCity(textFieldCity.getText());				
+		aluno.setTelephone(textFieldTelephone.getColumns());			
+		aluno.setPostal_code(textFieldPostalCode.getColumns());			
+		aluno.setPeriod(textFieldPeriod.getText());
+		
+		if(rdbtnActivity.isSelected()) {
+			aluno.setActivity(true);
+		} else{
+			aluno.setActivity(false);
+		}
+		
+		return aluno;
 	}
 	
 }
