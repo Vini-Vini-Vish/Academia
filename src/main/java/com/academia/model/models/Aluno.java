@@ -19,7 +19,7 @@ public class Aluno {
 	private String 	neighborhood;
 	private String 	city;
 	private int 	telephone;
-	private String 	postal_code;
+	private int 	postal_code;
 	private String 	period;
 	
 	private boolean activity;
@@ -100,10 +100,10 @@ public class Aluno {
 	}
 	//----------------------------------------------
 	@Column(name = "ALUNO_CODEPOSTAL", length = 10, nullable = false)
-	public String getPostal_code() {
+	public int getPostal_code() {
 		return postal_code;
 	}
-	public void setPostal_code(String postal_code) {
+	public void setPostal_code(int postal_code) {
 		this.postal_code = postal_code;
 	}
 	//----------------------------------------------
