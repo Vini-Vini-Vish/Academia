@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import com.academia.model.models.Usuario;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -147,6 +148,7 @@ public class UsuarioGUI extends JFrame {
 					.addContainerGap(117, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
+		createEvents();
 	}
 	
 	private void createEvents() {
@@ -155,6 +157,28 @@ public class UsuarioGUI extends JFrame {
 				dispose();
 			}
 		});
+	}
+	
+	public Usuario PegarDadosUsuario() {
+		Usuario usuario = new Usuario();
+		
+		usuario.setUsername(textFieldName.getText());
+		usuario.setEmail(textFieldEmail.getText());
+		usuario.setPassword(passwordFieldPassword.getSelectedText());
+		
+		if(rdbtnAtivo.isSelected()) {
+			usuario.setAtivo(true);
+		} else{
+			usuario.setAtivo(false);
+		}
+		
+		if(rdbtnAdmin.isSelected()) {
+			usuario.setAdmin(true);
+		} else{
+			usuario.setAdmin(false);
+		}
+		
+		return usuario;
 	}
 
 }
